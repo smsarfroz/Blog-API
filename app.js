@@ -1,8 +1,11 @@
 import express from 'express';
+import postRouter from './routes/postRouter.js';
+import commentRouter from './routes/commentRouter.js';
 const app = express();
 
 app.get("/", (req, res) => res.send("Hello, world!"));
-app.use("posts", postrouter);
+app.use("posts", postRouter);
+app.use("posts/:postid/comments", commentRouter);
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.statusCode || 500).send(err.message);
