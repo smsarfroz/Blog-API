@@ -4,6 +4,4 @@ const getPostbyid = asyncHandler(async(req, res) => {
 
 });
 
-export default {
-    getPostbyid
-}
+export default getPostbyid;

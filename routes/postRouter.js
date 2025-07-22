@@ -7,6 +7,4 @@ const postRouter = Router();
 postRouter.get("/", getAllPosts);
 postRouter.get("/:postid", getPostbyid);
 
-export default {
-    postRouter
-}
+export default postRouter;

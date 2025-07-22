@@ -4,6 +4,4 @@ const getAllCommentsbyPostid = asyncHandler(async(req, res) => {
 
 });
 
-export default {
- getAllCommentsbyPostid
-}
+export default getAllCommentsbyPostid;
