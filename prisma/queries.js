@@ -87,7 +87,7 @@ async function getCommentbyid(id, pid) {
         const comment = await prisma.Comment.findUnique({
             where: {
                 id: id,
-                postid: pid
+                postId: pid
             }
         })
         return comment;
