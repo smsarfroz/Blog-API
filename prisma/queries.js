@@ -1,6 +1,49 @@
 import { PrismaClient } from './generated/prima/index.js';
 const prisma = new PrismaClient();
 
+async function addnewpost(title, content, published, authorId) {
+    try {
+        const post = await prisma.Post.create({
+            data: {
+                title: title, 
+                content: content, 
+                published: published,
+                authorId: authorId
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function addnewuser(email, name, password) {
+    try {
+        const user = await prisma.User.create({
+            data: {
+                email: email,
+                name: name,
+                password: password
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function addnewcomment(userId, postId, content) {
+    try {
+        const comment = await prisma.Comment.create({
+            data: {
+                userId: userId,
+                postId: postId, 
+                content: content
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 async function getAllPosts() {
     try {
         const posts = await prisma.Post.findMany();
@@ -52,6 +95,10 @@ async function getCommentbyid(id) {
 export default {
     getAllPosts,
     getPostbyid,
-    getCommentbyidonPostid,
-    getAllCommentsbyPostid
+    getCommentbyid,
+    getAllCommentsbyPostid,
+    addnewuser,
+    addnewcomment,
+    addnewpost,
+    addnewpost
 }
