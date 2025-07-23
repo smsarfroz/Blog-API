@@ -99,6 +99,5 @@ export default {
     getAllCommentsbyPostid,
     addnewuser,
     addnewcomment,
-    addnewpost,
-    addnewpost
+    addnewpost, 
 }
