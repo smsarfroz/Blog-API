@@ -4,7 +4,8 @@ import prisma from '../prisma/queries.js';
 const getCommentbyid = asyncHandler(async(req, res) => {
     try {   
         const { commentid } = req.params;
-        const comment = await prisma.getCommentbyid(commentid);
+        const id = parseInt(commentid);
+        const comment = await prisma.getCommentbyid(id);
         res.json(comment);
     } catch (error) {
         console.error(error);

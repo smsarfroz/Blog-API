@@ -4,7 +4,10 @@ import prisma from '../prisma/queries.js';
 const getAllCommentsbyPostid = asyncHandler(async(req, res) => {
     try {
         const { postid } = req.params;
-        const comments = await prisma.getAllCommentsbyPostid(postid);
+        console.log(req.params);
+        console.log(req.body);
+        const id = parseInt(postid);
+        const comments = await prisma.getAllCommentsbyPostid(id);
         res.json(comments);
     } catch (error) {
         console.error(error);

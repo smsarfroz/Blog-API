@@ -4,9 +4,12 @@ import commentRouter from './routes/commentRouter.js';
 const app = express();
 
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => res.send("Hello, world!"));
-app.use("posts", postRouter);
-app.use("posts/:postid/comments", commentRouter);
+app.use("/posts", postRouter);
+app.use("/posts/:postid/comments", commentRouter);
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.statusCode || 500).send(err.message);

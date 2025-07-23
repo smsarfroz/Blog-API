@@ -1,6 +1,4 @@
-import { PrismaClient } from './generated/prisma/index.js'
-
-const prisma = new PrismaClient()
+import prisma from './prisma/queries.js';
 
 async function main() {
     const user1 = await prisma.addnewuser("tcha@gmail.com", "tanish", "abc12D@");
@@ -12,14 +10,16 @@ async function main() {
     const comment2 = await prisma.addnewcomment(1, 2, "comment2");
     const comment3 = await prisma.addnewcomment(2, 1, "comment3");
     const comment4 = await prisma.addnewcomment(2, 2, "comment4");
+
+    console.log(user1, user2, post1, post2, comment1, comment2, comment3, comment4);
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+  // .then(async () => {
+  //   await prisma.$disconnect()
+  // })
+  // .catch(async (e) => {
+  //   console.error(e)
+  //   await prisma.$disconnect()
+  //   process.exit(1)
+  // })

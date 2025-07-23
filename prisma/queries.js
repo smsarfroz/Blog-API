@@ -1,4 +1,4 @@
-import { PrismaClient } from './generated/prima/index.js';
+import { PrismaClient } from '../generated/prisma/index.js';
 const prisma = new PrismaClient();
 
 async function addnewpost(title, content, published, authorId) {
@@ -11,6 +11,7 @@ async function addnewpost(title, content, published, authorId) {
                 authorId: authorId
             }
         })
+        return post;
     } catch (error) {
         console.error(error);
     }
@@ -25,6 +26,7 @@ async function addnewuser(email, name, password) {
                 password: password
             }
         })
+        return user;
     } catch (error) {
         console.error(error);
     }
@@ -39,6 +41,7 @@ async function addnewcomment(userId, postId, content) {
                 content: content
             }
         })
+        return comment;
     } catch (error) {
         console.error(error);
     }
@@ -70,7 +73,7 @@ async function getAllCommentsbyPostid(id) {
     try {
         const comments = await prisma.Comment.findMany({
             where: {
-                postid: id
+                postId: id
             }
         })
         return comments;
