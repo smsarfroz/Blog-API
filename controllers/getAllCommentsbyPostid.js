@@ -5,7 +5,6 @@ const getAllCommentsbyPostid = asyncHandler(async(req, res) => {
     try {
         const { postid } = req.params;
         console.log(req.params);
-        console.log(req.body);
         const id = parseInt(postid);
         const comments = await prisma.getAllCommentsbyPostid(id);
         res.json(comments);
