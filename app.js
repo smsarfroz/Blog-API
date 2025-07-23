@@ -1,7 +1,6 @@
 import express from 'express';
 import postRouter from './routes/postRouter.js';
 import commentRouter from './routes/commentRouter.js';
-import prisma from 'queries.js';
 const app = express();
 
 
