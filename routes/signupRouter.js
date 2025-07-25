@@ -1,6 +1,6 @@
 import { Router } from "express";
 import bcrypt from "bcryptjs";
-import prisma from '../prisma/queries';
+import prisma from '../prisma/queries.js';
 
 const signupRouter = Router();
 
