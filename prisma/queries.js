@@ -49,7 +49,11 @@ async function addnewcomment(userId, postId, content) {
 
 async function getAllPosts() {
     try {
-        const posts = await prisma.Post.findMany();
+        const posts = await prisma.Post.findMany({
+            include: {
+                author: true,
+            }
+        });
         return posts;
     } catch (error) {
         console.error(error);
