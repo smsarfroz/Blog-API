@@ -3,9 +3,11 @@ import postRouter from './routes/postRouter.js';
 import commentRouter from './routes/commentRouter.js';
 import signupRouter from './routes/signupRouter.js';
 import loginRouter from './routes/loginRouter.js';
+import cors from 'cors';
+
 const app = express();
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,7 +22,7 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err.message);
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log(`My first Express app - listening on port ${PORT}!`);
+  console.log(`Express app - listening on port ${PORT}!`);
 });
