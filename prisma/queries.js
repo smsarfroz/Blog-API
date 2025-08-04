@@ -78,6 +78,9 @@ async function getAllCommentsbyPostid(id) {
         const comments = await prisma.Comment.findMany({
             where: {
                 postId: id
+            },
+            include: {
+                user: true
             }
         })
         return comments;
