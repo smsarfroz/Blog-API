@@ -9,6 +9,7 @@ signupRouter.post("/", async(req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         await prisma.addnewuser(req.body.username, hashedPassword);
         // console.log(req.body.username, hashedPassword);
+        res.redirect("../login");
     } catch (error) {
         console.error(error);
     }
