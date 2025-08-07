@@ -17,12 +17,11 @@ async function addnewpost(title, content, published, authorId) {
     }
 }
 
-async function addnewuser(email, name, password) {
+async function addnewuser(username, password) {
     try {
         const user = await prisma.User.create({
             data: {
-                email: email,
-                name: name,
+                username: username,
                 password: password
             }
         })
