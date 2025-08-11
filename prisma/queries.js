@@ -102,6 +102,23 @@ async function getCommentbyid(id, pid) {
     }
 }
 
+async function updatePostbyid(id, status) {
+    try {  
+        const newStatus = (status == true ? false: true); 
+        const updatePost = await prisma.Post.update({
+            where: {
+                id: id
+            },
+            data: {
+                published: newStatus
+            }
+        })
+        return updatePost;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export default {
     getAllPosts,
     getPostbyid,
@@ -110,4 +127,5 @@ export default {
     addnewuser,
     addnewcomment,
     addnewpost, 
+    updatePostbyid
 }

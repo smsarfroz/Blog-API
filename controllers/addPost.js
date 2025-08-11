@@ -2,8 +2,11 @@ import prisma from '../prisma/queries.js';
 
 const addPost = async(req, res) => {
     try {
+        console.log(req.body);
         const { title, content, published, authorId } = req.body;
-        await prisma.addnewpost(title, content, published, authorId);
+        const booleanPublished = (published === "true");
+        const intAuthorId = parseInt(authorId);
+        res.json(await prisma.addnewpost(title, content, booleanPublished, intAuthorId));
     } catch (err) {
         console.error(err);
     }
