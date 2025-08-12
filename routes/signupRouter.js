@@ -7,9 +7,10 @@ const signupRouter = Router();
 signupRouter.post("/", async(req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        await prisma.addnewuser(req.body.username, hashedPassword);
+        const user = await prisma.addnewuser(req.body.username, hashedPassword);
         // console.log(req.body.username, hashedPassword);
-        res.redirect("../login");
+        res.json(user);
+        // res.redirect("../login");
     } catch (error) {
         console.error(error);
     }

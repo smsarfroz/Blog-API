@@ -4,8 +4,7 @@ const updatePostbyid = async(req, res) => {
     try {
         const id = req.body.id;
         const published = req.body.published;
-
-        // console.log(id, published);
+                
         const updatePost = await prisma.updatePostbyid(id, published);
 
         res.status(200).json(updatePost);
