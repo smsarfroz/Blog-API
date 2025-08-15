@@ -3,6 +3,7 @@ import postRouter from './routes/postRouter.js';
 import commentRouter from './routes/commentRouter.js';
 import signupRouter from './routes/signupRouter.js';
 import loginRouter from './routes/loginRouter.js';
+import logoutRouter from './routes/logoutRouter.js';
 import cors from 'cors';
 
 const app = express();
@@ -16,6 +17,7 @@ app.use("/posts", postRouter);
 app.use("/posts/:postid/comments", commentRouter);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
+app.use("/logout", logoutRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
