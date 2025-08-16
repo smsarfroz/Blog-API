@@ -119,6 +119,19 @@ async function updatePostbyid(id, status) {
     }
 }
 
+async function getUserbyId(id) {
+    try {
+        const user = await prisma.User.findUnique({
+            where: {
+                id: id
+            }
+        })
+        return user;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export default {
     getAllPosts,
     getPostbyid,
@@ -127,5 +140,6 @@ export default {
     addnewuser,
     addnewcomment,
     addnewpost, 
-    updatePostbyid
+    updatePostbyid,
+    getUserbyId
 }

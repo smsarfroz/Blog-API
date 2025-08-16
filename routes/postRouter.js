@@ -12,6 +12,6 @@ postRouter.get("/", getAllPosts);
 postRouter.post("/", addPost);
 postRouter.get("/:postid", getPostbyid);
 postRouter.post("/:postid", updatePostbyid);
-postRouter.post("/:postid", verifyToken, postcomment);
+postRouter.post("/:postid/comment", verifyToken, postcomment);
 
 export default postRouter;      
