@@ -94,6 +94,9 @@ async function getCommentbyid(id, pid) {
             where: {
                 id: id,
                 postId: pid
+            },
+            include: {
+                user: true
             }
         })
         return comment;
@@ -132,6 +135,33 @@ async function getUserbyId(id) {
     }
 }
 
+async function deleteCommentbyId(id) {
+    try {
+        const comment = await prisma.Comment.delete({
+            where: {
+                id: id
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function updateCommentbyId(id, newContent) {
+    try {
+        const updateComment = await prisma.Comment.update({
+            where: {
+                id: id
+            },
+            data: {
+                content: newContent
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export default {
     getAllPosts,
     getPostbyid,
@@ -141,5 +171,7 @@ export default {
     addnewcomment,
     addnewpost, 
     updatePostbyid,
-    getUserbyId
+    getUserbyId,
+    deleteCommentbyId,
+    updateCommentbyId
 }
