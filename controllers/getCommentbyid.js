@@ -5,7 +5,7 @@ const getCommentbyid = asyncHandler(async(req, res) => {
     try {   
         const { commentid } = req.params;
         const { postid } = req.params;
-        console.log(req.params);
+        // console.log(req.params);
         const id = parseInt(commentid);
         const pid = parseInt(postid);
         const comment = await prisma.getCommentbyid(id, pid);

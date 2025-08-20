@@ -4,7 +4,7 @@ import prisma from '../prisma/queries.js';
 const getAllPosts = asyncHandler(async(req, res) => {
     try {
         const posts = await prisma.getAllPosts();
-        console.log('backend posts: ', posts);
+        // console.log('backend posts: ', posts);
         res.json(posts);
     } catch {
         console.error(error);

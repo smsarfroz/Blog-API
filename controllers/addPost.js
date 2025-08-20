@@ -5,8 +5,8 @@ const addPost = async(req, res) => {
         // console.log('req.body: ', req.body);
         const { title, content, published, authorId } = req.body;
         const booleanPublished = (published === "on");
-        console.log('published: ', published);
-        console.log('booleanPublished: ', booleanPublished);
+        // console.log('published: ', published);
+        // console.log('booleanPublished: ', booleanPublished);
         const intAuthorId = parseInt(authorId);
         const post = await prisma.addnewpost(title, content, booleanPublished, intAuthorId); 
         // console.log('post: ', post);
