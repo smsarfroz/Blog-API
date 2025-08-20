@@ -17,10 +17,11 @@ const postcomment = async(req, res) => {
             uid = parseInt(userId);
             pid = parseInt(postId);
             ct = content;
-            res.json(content);
+            // res.json(content);
         }
     });
     const comment = await prisma.addnewcomment(uid, pid, ct);
+    res.json(comment);
     // console.log('comment: ', comment);
 };
 
