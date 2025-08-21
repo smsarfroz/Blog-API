@@ -38,6 +38,9 @@ async function addnewcomment(userId, postId, content) {
                 userId: userId,
                 postId: postId, 
                 content: content
+            },
+            include: {
+                user: true
             }
         })
         return comment;

@@ -21,8 +21,8 @@ const postcomment = async(req, res) => {
         }
     });
     const comment = await prisma.addnewcomment(uid, pid, ct);
-    res.json(comment);
     // console.log('comment: ', comment);
+    res.json(comment);
 };
 
 export default postcomment;
