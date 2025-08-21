@@ -4,7 +4,7 @@ import prisma from '../prisma/queries.js';
 const postcomment = async(req, res) => {
     // console.log('req.token ' , req.token);
     let uid, pid, ct;
-    jwt.verify(req.token, process.env.SECRET_KEY, (err, authData) => {
+    jwt.verify(req.token, process.env.SECRET_KEY, async (err, authData) => {
         if (err) {
             console.error(err);
             // console.log('req.token: ', req.token);
@@ -18,11 +18,13 @@ const postcomment = async(req, res) => {
             pid = parseInt(postId);
             ct = content;
             // res.json(content);
+
+            const comment = await prisma.addnewcomment(uid, pid, ct);
+            // console.log('comment: ', comment);
+            res.json(comment);
         }
     });
-    const comment = await prisma.addnewcomment(uid, pid, ct);
-    // console.log('comment: ', comment);
-    res.json(comment);
+    
 };
 
 export default postcomment;
