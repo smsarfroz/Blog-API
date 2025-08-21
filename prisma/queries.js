@@ -1,4 +1,5 @@
-import { PrismaClient } from '../generated/prisma/index.js';
+// import { PrismaClient } from '../generated/prisma/index.js';
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function addnewpost(title, content, published, authorId) {
