@@ -18,7 +18,6 @@ const postcomment = async(req, res) => {
             pid = parseInt(postId);
             ct = content;
             // res.json(content);
-
             const comment = await prisma.addnewcomment(uid, pid, ct);
             // console.log('comment: ', comment);
             res.json(comment);
