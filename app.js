@@ -25,6 +25,9 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT;
+const server = app.listen(PORT);
+server.keepAliveTimeout = 30000; 
+server.headersTimeout = 31000; 
 app.listen(PORT, () => {
   console.log(`Express app - listening on port ${PORT}!`);
 });
