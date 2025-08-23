@@ -6,6 +6,8 @@ const getPostbyid = asyncHandler(async(req, res) => {
         const { postid } = req.params;
         const id = parseInt(postid);
         const post = await prisma.getPostbyid(id);
+        console.log("postid, id ", postid, id);
+        console.log("post ", post);
         res.json(post);
     } catch {
         console.error(error);
