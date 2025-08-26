@@ -65,6 +65,7 @@ async function getAllPosts() {
 
 async function getPostbyid(id) {
     try {
+        console.log("post id in prisma query : ", id);
         const post = await prisma.Post.findUnique({
             where: {
                 id: id
