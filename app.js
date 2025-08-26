@@ -19,10 +19,6 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.statusCode || 500).send(err.message);
